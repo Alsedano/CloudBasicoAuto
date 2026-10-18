@@ -1,14 +1,22 @@
-import React from 'react';
-import { RouterProvider } from '@tanstack/react-router';
-import { router } from '#core/router';
-import { ThemeProviderComponent } from '#core/theme';
+import React from "react";
+import { SearchProvider } from "./pods/search/search.provider";
+import "@/global-css/styles.css";
+import { AuthProvider } from "./pods/login/login.provider";
+import { AppScene } from "./scenes/app.scene";
+import { SceneRouter } from "./router";
 
-const App: React.FC = () => {
-  return (
-    <ThemeProviderComponent>
-      <RouterProvider router={router} />
-    </ThemeProviderComponent>
-  );
+export const App = () => {
+  return <AppRouter />;
 };
 
-export default App;
+export const AppRouter: React.FC = () => {
+  return (
+    <AuthProvider>
+      <SearchProvider>
+        <AppScene>
+          <SceneRouter />
+        </AppScene>
+      </SearchProvider>
+    </AuthProvider>
+  );
+};

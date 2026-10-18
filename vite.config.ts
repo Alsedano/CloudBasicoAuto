@@ -1,16 +1,10 @@
-import { tanstackRouter } from '@tanstack/router-plugin/vite';
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
+import checker from "vite-plugin-checker";
+import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   base: './',
-  envPrefix: 'PUBLIC_',
-  plugins: [
-    tanstackRouter({
-      routesDirectory: 'src/scenes',
-      generatedRouteTree: 'src/core/router/route-tree.ts',
-      autoCodeSplitting: true,
-    }),
-    react(),
-  ],
+  plugins: [checker({ typescript: true }), react(), tsconfigPaths(), svgr()],
 });

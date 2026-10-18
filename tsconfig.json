@@ -1,20 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "declaration": false,
+    "noEmit": true,
     "noImplicitAny": false,
-    "sourceMap": true,
-    "jsx": "react-jsx",
-    "noLib": false,
-    "allowJs": true,
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "strict": true,
+    "sourceMap": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
     "paths": {
-      "#*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["./src/**/*", "./vite-env.d.ts", "./config/test/config.d.ts"]
+  "include": ["src"]
 }
